@@ -27,3 +27,75 @@ body{
   top: 20px;
 
 }
+.play-field{
+  background-color: burlywood;
+  height: 300px;
+  width: 450px;
+  position: absolute;
+  left: 150px;
+  top: 200px;
+}
+.deck{
+  background-color: chartreuse;
+  height: 30px;
+  width: 45px;
+  position: absolute;
+  left: 1px;
+  top: 200px;
+}
+.bets{
+  background-color: coral;
+  height: 30px;
+  width: 45px;
+  position: absolute;
+  left: 150px;
+  top: 2px;
+}
+ #p1{
+  background-color: crimson;
+  height: 30px;
+  width: 70px;
+  position: absolute;
+  left: 15px;
+  top: 20px;
+}
+#p2{
+  background-color: darkblue;
+  height: 30px;
+  width: 70px;
+  position: absolute;
+  left: 15px;
+  top: 40px;
+}
+#d1{
+  background-color: darkgoldenrod;
+  height: 32px;
+  width: 45px;
+  position: absolute;
+  left: 150px;
+  top: 200px;
+}
+#d2{
+  background-color: darkorchid;
+  height: 30px;
+  width: 45px;
+  position: absolute;
+  left: 100px;
+  top: 20px;
+}
+#hit{
+  background-color: darkslategray;
+  height: 30px;
+  width: 45px;
+  position: absolute;
+  left: 100px;
+  top: 70px;
+}
+#stand{
+  background-color: deeppink;
+  height: 30px;
+  width: 45px;
+  position: absolute;
+  left: 100px;
+  top: 20px;
+}
