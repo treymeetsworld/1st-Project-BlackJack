@@ -10,7 +10,7 @@ body{
   
 }
 .player{
-  background-color: black;
+  background-color:white;
   height: 76px;
   width: 120px;
   position:absolute;
@@ -40,47 +40,47 @@ body{
   height: 30px;
   width: 45px;
   position: absolute;
-  left: 1px;
-  top: 200px;
+  left: 55px;
+  top: 110px;
 }
 .bets{
   background-color: coral;
   height: 30px;
   width: 45px;
   position: absolute;
-  left: 150px;
-  top: 2px;
+  left:350px;
+  top: 110px;
 }
  #p1{
   background-color: crimson;
   height: 30px;
   width: 70px;
   position: absolute;
-  left: 15px;
-  top: 20px;
+  left: 100px;
+  top: 250px;
 }
 #p2{
   background-color: darkblue;
   height: 30px;
   width: 70px;
   position: absolute;
-  left: 15px;
-  top: 40px;
+  left: 220px;
+  top: 250px;
 }
 #d1{
   background-color: darkgoldenrod;
   height: 32px;
   width: 45px;
   position: absolute;
-  left: 150px;
-  top: 200px;
+  left: 100px;
+  top: 20px;
 }
 #d2{
   background-color: darkorchid;
   height: 30px;
   width: 45px;
   position: absolute;
-  left: 100px;
+  left: 220px;
   top: 20px;
 }
 #hit{
@@ -88,14 +88,14 @@ body{
   height: 30px;
   width: 45px;
   position: absolute;
-  left: 100px;
-  top: 70px;
+  left: 280px;
+  top:550px;
 }
 #stand{
   background-color: deeppink;
   height: 30px;
   width: 45px;
   position: absolute;
-  left: 100px;
-  top: 20px;
+  left: 400px;
+  top: 550px;
 }
