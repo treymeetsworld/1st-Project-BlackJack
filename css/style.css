@@ -24,7 +24,7 @@ body{
   width: 120px;
   position:absolute;
   right:300px;
-  top: 20px;
+  top: 10px;
 
 }
 .play-field{
@@ -32,12 +32,12 @@ body{
   height: 300px;
   width: 450px;
   position: absolute;
-  left: 150px;
+  left: 160px;
   top: 200px;
 }
 .deck{
   background-color: chartreuse;
-  height: 30px;
+  height: 70px;
   width: 45px;
   position: absolute;
   left: 55px;
@@ -45,57 +45,59 @@ body{
 }
 .bets{
   background-color: coral;
-  height: 30px;
-  width: 45px;
+  height: 70px;
+  width: 100px;
   position: absolute;
-  left:350px;
+  left:270px;
   top: 110px;
 }
  #p1{
   background-color: crimson;
-  height: 30px;
-  width: 70px;
+  height: 70px;
+  width: 60px;
   position: absolute;
-  left: 100px;
-  top: 250px;
+  left: 120px;
+  top: 230px;
 }
 #p2{
   background-color: darkblue;
-  height: 30px;
-  width: 70px;
+  height: 70px;
+  width: 60px;
   position: absolute;
   left: 220px;
-  top: 250px;
+  top: 230px;
 }
 #d1{
   background-color: darkgoldenrod;
-  height: 32px;
-  width: 45px;
+  height: 70px;
+  width: 60px;
   position: absolute;
-  left: 100px;
-  top: 20px;
+  left: 120px;
+  top: 0px;
 }
 #d2{
   background-color: darkorchid;
-  height: 30px;
-  width: 45px;
+  height: 70px;
+  width: 60px;
   position: absolute;
   left: 220px;
-  top: 20px;
+  top: 0px;
 }
 #hit{
   background-color: darkslategray;
-  height: 30px;
+  height: 45px;
   width: 45px;
   position: absolute;
   left: 280px;
-  top:550px;
+  top:520px;
+  border-radius: 50%;
 }
 #stand{
   background-color: deeppink;
-  height: 30px;
+  height: 45px;
   width: 45px;
   position: absolute;
   left: 400px;
-  top: 550px;
+  top: 520px;
+  border-radius: 50%;
 }
