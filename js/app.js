@@ -2,7 +2,7 @@
 const suits = ["♥️","♦️","♠️","♣️"]
 const cards =["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
 /*------------- Variables (state) -------------*/
-let hit,stand,turn,winner
+let hit,stand,turn,winner,bet
 let deck = []
 /*--------- Cached Element References ---------*/
 let standRef = document.getElementById('stand')
@@ -45,8 +45,8 @@ function shuffleDeck(cardsIn){
     let randIdx = Math.floor(Math.random() * cardsIn.length)
     let randCard = cardsIn.splice(randIdx,1)
     cardsOut.push(randCard)
-     
-    
   }
 }
-shuffleDeck(deck)
+function dealCard(){
+  
+}

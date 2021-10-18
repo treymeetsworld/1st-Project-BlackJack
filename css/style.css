@@ -101,3 +101,7 @@ body{
   top: 520px;
   border-radius: 50%;
 }
+#deal{
+  background-color: aqua;
+  height: fit-content;
+}
