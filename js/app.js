@@ -1,10 +1,9 @@
 /*----------------- Constants -----------------*/
-const suits = ["♥️","♦️","♠️ ","♣️"]
-const cards =["2","3","4","5",
-"6","7","8","9",
-  "10","J","Q","K","A"]
+const suits = ["♥️","♦️","♠️","♣️"]
+const cards =["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
 /*------------- Variables (state) -------------*/
-let deck,hit,stand,turn,winner
+let hit,stand,turn,winner
+let deck = []
 /*--------- Cached Element References ---------*/
 let standRef = document.getElementById('stand')
 let hitRef = document.getElementById('hit') 
@@ -15,9 +14,9 @@ hitClick = hitRef.addEventListener('click',console.log('hello'))
 init()
 
 function init(){
-deck =getDeck()
-turn = 1
-winner = null
+  getDeck()
+  turn = 1
+  winner = null
 }
 // render()
 // }
@@ -26,7 +25,7 @@ winner = null
 // }
 
 function getDeck(){
-  let deck = []
+  
   for (let suitIdx = 0; suitIdx < suits.length; suitIdx++) {
     for (let cardsIdx = 0; cardsIdx < cards.length; cardsIdx++) {
       let card = {
@@ -34,7 +33,20 @@ function getDeck(){
         cards: cards[cardsIdx]
       }
       deck.push(card);
+      
     }
   }
-  console.log(deck);
+  
 }
+
+function shuffleDeck(cardsIn){
+  let cardsOut = []
+  for (let i = 1;i = cardsIn.length;i++){
+    let randIdx = Math.floor(Math.random() * cardsIn.length)
+    let randCard = cardsIn.splice(randIdx,1)
+    cardsOut.push(randCard)
+     
+    
+  }
+}
+shuffleDeck(deck)
