@@ -19,7 +19,7 @@ let d2El = document.getElementById('d2')
 // standRef.addEventListener('click',console.log('hi'))
 // hitClick = hitRef.addEventListener('click',console.log('hello'))
 dealRef.addEventListener('click',console.log('hi'))
-startRef.addEventListener('click',init)
+// startRef.addEventListener('click',init)
 /*----------------- Functions -----------------*/
 init()
 
@@ -27,22 +27,21 @@ function init(){
   getDeck()
   turn = 1
   winner = null
-  deckEl.innerText = deck.length
-  // render()
-  cardsOut = shuffleDeck(deck)
   p1El.innerText = shuffleDeck(deck).pop()
   p2El.innerText = shuffleDeck(deck).pop()
   d1El.innerText = shuffleDeck(deck).pop()
   d2El.innerText = shuffleDeck(deck).pop()
+  deckEl.innerText = deck.length
+  // render()
 }
 
 
-// function render(){
-// if (deck.length === 52){
+function render(){
+// if (){
 
 // }
-// return deckCount
-// }
+return deckCount
+}
 
 
 function getDeck(){
