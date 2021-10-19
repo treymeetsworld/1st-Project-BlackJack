@@ -12,11 +12,14 @@ let dealRef = document.getElementById('dealBtn')
 let startRef = document.getElementById('startBtn')
 let deckEl = document.querySelector('.deck')
 let p1El = document.getElementById('p1')
+let p2El = document.getElementById('p2')
+let d1El = document.getElementById('d1')
+let d2El = document.getElementById('d2')
 /*-------------- Event Listeners --------------*/
 // standRef.addEventListener('click',console.log('hi'))
 // hitClick = hitRef.addEventListener('click',console.log('hello'))
 dealRef.addEventListener('click',console.log('hi'))
-startRef.addEventListener('click',init,true)
+startRef.addEventListener('click',init)
 /*----------------- Functions -----------------*/
 init()
 
@@ -27,8 +30,10 @@ function init(){
   deckEl.innerText = deck.length
   // render()
   cardsOut = shuffleDeck(deck)
-  p1El.innerText = cardsOut
-  
+  p1El.innerText = shuffleDeck(deck).pop()
+  p2El.innerText = shuffleDeck(deck).pop()
+  d1El.innerText = shuffleDeck(deck).pop()
+  d2El.innerText = shuffleDeck(deck).pop()
 }
 
 
@@ -61,12 +66,15 @@ function shuffleDeck(deck){
     let randIdx = Math.floor(Math.random() * deck.length)
     let randCard = deck.splice(randIdx,1)
     cardsOut.push(randCard)
-    return cardsOut; 
+    return cardsOut 
     
   }
 }
+
 // function dealCard (){
-//   let playerCard1 = cardsOut.pop()
-//   playerCard2 = cardsOut.pop()
-//     return playerCard1
+//   p1El.innerText = shuffleDeck(deck).pop()
+//   p2El.innerText = cardsOut.pop()
+//   d1El.innerText = cardsOut.pop()
+//   d2El.innerText = cardsOut.pop()
+//     return playerCard1,playerCard2,d1El,d2El
 // }
