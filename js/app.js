@@ -2,14 +2,21 @@
 const suits = ["♥️","♦️","♠️","♣️"]
 const cards =["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
 /*------------- Variables (state) -------------*/
-let hit,stand,turn,winner,bet
+let hit,stand,turn,winner
 let deck = []
+let cardsOut = []
 /*--------- Cached Element References ---------*/
 let standRef = document.getElementById('stand')
 let hitRef = document.getElementById('hit') 
+let dealRef = document.getElementById('dealBtn')
+let startRef = document.getElementById('startBtn')
+let deckEl = document.querySelector('.deck')
+let p1El = document.getElementById('p1')
 /*-------------- Event Listeners --------------*/
-standRef.addEventListener('click',console.log('hi'))
-hitClick = hitRef.addEventListener('click',console.log('hello'))
+// standRef.addEventListener('click',console.log('hi'))
+// hitClick = hitRef.addEventListener('click',console.log('hello'))
+dealRef.addEventListener('click',console.log('hi'))
+startRef.addEventListener('click',init,true)
 /*----------------- Functions -----------------*/
 init()
 
@@ -17,12 +24,21 @@ function init(){
   getDeck()
   turn = 1
   winner = null
+  deckEl.innerText = deck.length
+  // render()
+  cardsOut = shuffleDeck(deck)
+  p1El.innerText = cardsOut
+  
 }
-// render()
-// }
-// function handleclick(){
+
+
+// function render(){
+// if (deck.length === 52){
 
 // }
+// return deckCount
+// }
+
 
 function getDeck(){
   
@@ -32,21 +48,25 @@ function getDeck(){
         suit: suits[suitIdx],
         cards: cards[cardsIdx]
       }
-      deck.push(card);
+      let joinedCard  =`${card.cards} ${card.suit}`
+      deck.push(joinedCard);
       
     }
   }
   
 }
 
-function shuffleDeck(cardsIn){
-  let cardsOut = []
-  for (let i = 1;i = cardsIn.length;i++){
-    let randIdx = Math.floor(Math.random() * cardsIn.length)
-    let randCard = cardsIn.splice(randIdx,1)
+function shuffleDeck(deck){
+  for (let i = 1;i = deck.length;i++){
+    let randIdx = Math.floor(Math.random() * deck.length)
+    let randCard = deck.splice(randIdx,1)
     cardsOut.push(randCard)
+    return cardsOut; 
+    
   }
 }
-function dealCard(){
-  
-}
+// function dealCard (){
+//   let playerCard1 = cardsOut.pop()
+//   playerCard2 = cardsOut.pop()
+//     return playerCard1
+// }
