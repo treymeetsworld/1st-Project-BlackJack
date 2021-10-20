@@ -20,6 +20,8 @@ let p1El = document.getElementById('p1')
 let p2El = document.getElementById('p2')
 let d1El = document.getElementById('d1')
 let d2El = document.getElementById('d2')
+let dealInputEl = document.getElementById('dealerInput')
+let playInputEl = document.getElementById('playerInput')
 
 /*-------------- Event Listeners --------------*/
 // standRef.addEventListener('click',console.log('hi'))
@@ -82,11 +84,10 @@ function cardValues() {
 
   dealerCard2 = parseInt(d2El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
   
-  playerTotal = playerCard1 + playerCard2
-  dealerTotal = dealerCard1 + dealerCard2
-  
-  console.log(playerTotal,dealerTotal);
-  return playerTotal 
+  playInputEl.value = playerCard1 + playerCard2
+  dealInputEl.value = dealerCard1 + dealerCard2
+
+  return playInputEl.value,dealInputEl.value
 }
 // function compareCards(){
  

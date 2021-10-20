@@ -105,3 +105,9 @@ body{
   background-color: aqua;
   height: fit-content;
 }
+#dealerInput{
+  width: 30px;
+}
+#playerInput{
+  width: 30px;
+}
