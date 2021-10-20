@@ -3,10 +3,10 @@ const suits = ["♥️","♦️","♠️","♣️"]
 const cards =["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
 
 /*------------- Variables (state) -------------*/
-let hit,stand,turn,winner,playerCard1, playerCard2, dealerCard1, dealerCard2 
+let stand,turn,winner,playerCard1, playerCard2, dealerCard1, dealerCard2 
 let deck = []
 let cardsOut = []
-let platerTotal = []
+let playerTotal = []
 let dealerTotal = []
 
 
@@ -25,7 +25,7 @@ let playInputEl = document.getElementById('playerInput')
 
 /*-------------- Event Listeners --------------*/
 // standRef.addEventListener('click',console.log('hi'))
-// hitClick = hitRef.addEventListener('click',console.log('hello'))
+hitClick = hitRef.addEventListener('click',hit)
 // dealRef.addEventListener('click',console.log('hi'))
 // startRef.addEventListener('click',init)
 /*----------------- Functions -----------------*/
@@ -58,7 +58,6 @@ function getDeck(){
       }
       let joinedCard  =`${card.cards} ${card.suit}`
       deck.push(joinedCard);
-      
     }
   }
   return deck
@@ -68,9 +67,7 @@ function shuffleDeck(deck){
   for (let i = 1;i = deck.length;i++){
     let randIdx = Math.floor(Math.random() * deck.length)
     let randCard = deck.splice(randIdx,1)
-    cardsOut.push(randCard)
-     
-    
+    cardsOut.push(randCard) 
   }
   return cardsOut
 }
@@ -84,15 +81,25 @@ function cardValues() {
 
   dealerCard2 = parseInt(d2El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
   
-  playInputEl.value = playerCard1 + playerCard2
+  playerTotal1 = playerCard1 + playerCard2 
   dealInputEl.value = dealerCard1 + dealerCard2
-
+  // remember to add dealer
+  playInputEl.value = playerTotal1
+  playerTotal.push(playerTotal1)
   return playInputEl.value,dealInputEl.value
 }
-// function compareCards(){
- 
-  
 
-// }
+function hit(){ 
+  p1El.innerText = cardsOut.pop()
+  playerHit = p1El.innerText
+    playerHit =  parseInt(p1El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
+    playerTotal.push(playerHit)
+    let sum = playerTotal.reduce((a,b)=>{
+      return a + b
+    },0)
+    playInputEl.value = sum
+  }
+
+
 
 
