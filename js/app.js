@@ -1,10 +1,15 @@
 /*----------------- Constants -----------------*/
 const suits = ["♥️","♦️","♠️","♣️"]
 const cards =["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
+
 /*------------- Variables (state) -------------*/
-let hit,stand,turn,winner
+let hit,stand,turn,winner,playerCard1, playerCard2, dealerCard1, dealerCard2 
 let deck = []
 let cardsOut = []
+let platerTotal = []
+let dealerTotal = []
+
+
 /*--------- Cached Element References ---------*/
 let standRef = document.getElementById('stand')
 let hitRef = document.getElementById('hit') 
@@ -15,33 +20,30 @@ let p1El = document.getElementById('p1')
 let p2El = document.getElementById('p2')
 let d1El = document.getElementById('d1')
 let d2El = document.getElementById('d2')
+
 /*-------------- Event Listeners --------------*/
 // standRef.addEventListener('click',console.log('hi'))
 // hitClick = hitRef.addEventListener('click',console.log('hello'))
-dealRef.addEventListener('click',console.log('hi'))
+// dealRef.addEventListener('click',console.log('hi'))
 // startRef.addEventListener('click',init)
 /*----------------- Functions -----------------*/
 init()
 
 function init(){
   getDeck()
+  shuffleDeck(deck)
   turn = 1
   winner = null
-  p1El.innerText = shuffleDeck(deck).pop()
-  p2El.innerText = shuffleDeck(deck).pop()
-  d1El.innerText = shuffleDeck(deck).pop()
-  d2El.innerText = shuffleDeck(deck).pop()
-  deckEl.innerText = deck.length
-  // render()
+  p1El.innerText = cardsOut.pop()
+  p2El.innerText = cardsOut.pop()
+
+  d1El.innerText = cardsOut.pop()
+  d2El.innerText = cardsOut.pop()
+  deckEl.innerText = cardsOut.length
+  
+  cardValues()
 }
 
-
-function render(){
-// if (){
-
-// }
-return deckCount
-}
 
 
 function getDeck(){
@@ -57,7 +59,7 @@ function getDeck(){
       
     }
   }
-  
+  return deck
 }
 
 function shuffleDeck(deck){
@@ -65,15 +67,31 @@ function shuffleDeck(deck){
     let randIdx = Math.floor(Math.random() * deck.length)
     let randCard = deck.splice(randIdx,1)
     cardsOut.push(randCard)
-    return cardsOut 
+     
     
   }
+  return cardsOut
 }
 
-// function dealCard (){
-//   p1El.innerText = shuffleDeck(deck).pop()
-//   p2El.innerText = cardsOut.pop()
-//   d1El.innerText = cardsOut.pop()
-//   d2El.innerText = cardsOut.pop()
-//     return playerCard1,playerCard2,d1El,d2El
+function cardValues() {
+  playerCard1 = parseInt(p1El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
+
+  playerCard2 = parseInt(p2El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
+
+  dealerCard1 = parseInt(d1El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
+
+  dealerCard2 = parseInt(d2El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
+  
+  playerTotal = playerCard1 + playerCard2
+  dealerTotal = dealerCard1 + dealerCard2
+  
+  console.log(playerTotal,dealerTotal);
+  return playerTotal 
+}
+// function compareCards(){
+ 
+  
+
 // }
+
+
