@@ -27,7 +27,7 @@ let playInputEl = document.getElementById('playerInput')
 standRef.addEventListener('click',stand)
 hitClick = hitRef.addEventListener('click',hit)
 dealRef.addEventListener('click',deal)
-// startRef.addEventListener('click',init)
+startRef.addEventListener('click',init)
 /*----------------- Functions -----------------*/
 init()
 
@@ -74,6 +74,8 @@ function deal(){
 }
 
 function cardValues() {
+  playerTotal = []
+  dealerTotal = []
   playerCard1 = parseInt(p1El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
 
   playerCard2 = parseInt(p2El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
@@ -120,4 +122,3 @@ function stand(){
     dealInputEl.value = parseInt(sum)
     dealerTotal = parseInt(dealInputEl.value)
 }
-
