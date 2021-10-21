@@ -112,6 +112,9 @@ function hit(){
 
 
 function stand(){
+  playerTotal = parseInt(playInputEl.value)
+  dealerTotal.push(parseInt(dealInputEl.value)) 
+  dealerTotal.pop()
   let sum
   d2El.innerText = cardsOut.pop()
   deckEl.innerText = cardsOut.length
@@ -119,10 +122,10 @@ function stand(){
     dealerStand =  parseInt(d2El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
     dealerTotal.push(dealerStand)
     sum = dealerTotal.reduce((a,b)=>{
-      return a + b
+      return [parseInt(a) + parseInt(b)]
     },0)
-    dealInputEl.value = parseInt(sum)
-    dealerTotal = parseInt(dealInputEl.value)
+    dealerTotal = sum
+    dealInputEl.value = sum
     isWinner()
 }
 function isWinner() {
@@ -132,8 +135,13 @@ function isWinner() {
   if (dealInputEl.value == 21){
     console.log("dealer wins");
   }
+  if (playInputEl.value > 21){
+    console.log(" YOU LOSE");
+  }
+  if (dealInputEl.value > 21){
+    console.log("YOU WIN");
   if (cardsOut.length === 0){
     console.log("game over");
+    }
   }
-  
 }
