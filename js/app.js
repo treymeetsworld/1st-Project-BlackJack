@@ -36,6 +36,7 @@ function init(){
   shuffleDeck(deck)
   turn = 1
   winner = null
+  // startRef.innerText = 'Restart'
 }
 
 
