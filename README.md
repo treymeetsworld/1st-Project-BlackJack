@@ -8,7 +8,8 @@ I am a big fan of card based games that involve gambling  and have been playing 
 ***
 Here is the visual planning process:
 My first design of the wireframe.
-![wireframe](https://imgur.com/a/9uqinw8)
+[wireframe](file:///Users/tmwangi/Documents/Screenshots/wireFrame%20Model.png)
+
 
 
 
