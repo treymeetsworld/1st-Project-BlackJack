@@ -69,6 +69,7 @@ function deal(){
   p2El.innerText = cardsOut.pop()
   d1El.innerText = cardsOut.pop()
   deckEl.innerText = cardsOut.length
+  d2El.innerText = ''
   cardValues()
 }
 
