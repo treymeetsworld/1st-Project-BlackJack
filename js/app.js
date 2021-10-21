@@ -103,10 +103,10 @@ function hit(){
     playerHit =  parseInt(p1El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
     playerTotal.push(playerHit)
     sum = playerTotal.reduce((a,b)=>{
-      return a + b
+      return [parseInt(a) + parseInt(b)]
     },0)
-    playInputEl.value = parseInt(sum)
-    playerTotal = parseInt(playInputEl.value)
+    playerTotal = sum
+    playInputEl.value = sum
     isWinner()
   }
 
@@ -143,5 +143,10 @@ function isWinner() {
   if (cardsOut.length === 0){
     console.log("game over");
     }
+  }
+}
+function isGreater(){
+  if (dealInputEl.value < 14){
+    
   }
 }
