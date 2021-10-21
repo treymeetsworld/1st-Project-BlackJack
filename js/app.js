@@ -71,6 +71,7 @@ function deal(){
   deckEl.innerText = cardsOut.length
   d2El.innerText = ''
   cardValues()
+  isWinner()
 }
 
 function cardValues() {
@@ -106,6 +107,7 @@ function hit(){
     },0)
     playInputEl.value = parseInt(sum)
     playerTotal = parseInt(playInputEl.value)
+    isWinner()
   }
 
 
@@ -121,4 +123,17 @@ function stand(){
     },0)
     dealInputEl.value = parseInt(sum)
     dealerTotal = parseInt(dealInputEl.value)
+    isWinner()
+}
+function isWinner() {
+  if (playInputEl.value == 21){
+    console.log(" YOU WIN!!");
+  }
+  if (dealInputEl.value == 21){
+    console.log("dealer wins");
+  }
+  if (cardsOut.length === 0){
+    console.log("game over");
+  }
+  
 }
