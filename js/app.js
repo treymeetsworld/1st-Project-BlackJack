@@ -81,10 +81,12 @@ function cardValues() {
   dealerCard2 = parseInt(d2El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
   
   playerTotal1 = playerCard1 + playerCard2 
-  dealInputEl.value = dealerCard1 + dealerCard2
-  // remember to add dealer
+  dealerTotal1 = dealerCard1 
+  
   playInputEl.value = playerTotal1
   playerTotal.push(playerTotal1)
+  dealInputEl.value = dealerTotal1
+  dealerTotal.push(dealerTotal1)
   return playInputEl.value,dealInputEl.value
 }
 
@@ -104,8 +106,16 @@ function hit(){
 
 
 function stand(){
+  let sum
   d2El.innerText = cardsOut.pop()
   deckEl.innerText = cardsOut.length
-  cardValues()
+  dealerStand = d2El.innerText
+    dealerStand =  parseInt(d2El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
+    dealerTotal.push(dealerStand)
+    sum = dealerTotal.reduce((a,b)=>{
+      return a + b
+    },0)
+    dealInputEl.value = parseInt(sum)
+    dealerTotal = parseInt(dealInputEl.value)
 }
 
