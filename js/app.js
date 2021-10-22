@@ -127,6 +127,7 @@ function stand(){
     dealerTotal = sum
     dealInputEl.value = sum
     isWinner()
+    isGreater()
 }
 function isWinner() {
   if (playInputEl.value == 21){
@@ -147,6 +148,17 @@ function isWinner() {
 }
 function isGreater(){
   if (dealInputEl.value < 14){
-    
+    d2El.innerText = cardsOut.pop()
+    deckEl.innerText = cardsOut.length
+    dealerStand = d2El.innerText
+    dealerStand =  parseInt(d2El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
+    dealerTotal.push(dealerStand)
+    sum = dealerTotal.reduce((a,b)=>{
+      return [parseInt(a) + parseInt(b)]
+    },0)
+    dealerTotal = sum
+    dealInputEl.value = sum
+  }else if(dealInputEl.value > 14){
+    evaluate()
   }
 }
