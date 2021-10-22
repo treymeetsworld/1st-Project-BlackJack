@@ -72,6 +72,9 @@ function deal(){
   d2El.innerText = ''
   cardValues()
   isWinner()
+  if (deckEl.innerText == 0){
+    shuffleDeck(deck)
+  }
 }
 
 function cardValues() {
@@ -127,6 +130,7 @@ function stand(){
     dealerTotal = sum
     dealInputEl.value = sum
     isWinner()
+    isAce()
     isGreater()
 }
 function isWinner() {
@@ -135,6 +139,11 @@ function isWinner() {
   }
   if (dealInputEl.value == 21){
     console.log("dealer wins");
+  }
+  if (d1El.innerText == 11 && d2El.innerText == 11){
+    console.log('dealer wins 2');
+  }else if(p1El.innerText == 11 && p2El.innerText == 11){
+    console.log('player wins2');
   }
   if (playInputEl.value > 21){
     console.log(" YOU LOSE");
@@ -147,7 +156,7 @@ function isWinner() {
   }
 }
 function isGreater(){
-  if (dealInputEl.value < 14){
+  if (d1El.innerText + d2El.innerText < 14){
     d2El.innerText = cardsOut.pop()
     deckEl.innerText = cardsOut.length
     dealerStand = d2El.innerText
@@ -158,7 +167,33 @@ function isGreater(){
     },0)
     dealerTotal = sum
     dealInputEl.value = sum
+    evaluate()
   }else if(dealInputEl.value > 14){
     evaluate()
+  }
+}
+function evaluate(){
+  if (dealInputEl.value > playInputEl.value){
+    console.log('dealer wins1');
+  }else if(playInputEl.value > dealInputEl.value) {
+    console.log('player wins1');
+  }else {
+    console.log('its a tie');
+  }
+}
+function isAce(){
+  if (d1El.innerText == 11 && dealInputEl.value > 21){
+    console.log('isace 1');
+    return d1El.innerText = 1
+  }else if (d2El.innerText == 11 && dealInputEl.value > 21){
+    console.log('isace 2');
+    return d2El.innerText = 1
+  } 
+  if (p1El.innerText == 11 && playInputEl.value > 21){
+    console.log('isace 3');
+    return p1El.innerText = 1
+  }else if (p2El.innerText == 11 && playInputEl.value > 21){
+    console.log('isace 4');
+    return p2El.innerText = 1
   }
 }
