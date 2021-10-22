@@ -72,8 +72,14 @@ function deal(){
   d2El.innerText = ''
   cardValues()
   isWinner()
-  if (deckEl.innerText == 0){
+  if (deckEl.innerText == 0 || cardsOut.length == 0){
+    getDeck()
     shuffleDeck(deck)
+    p1El.innerText = cardsOut.pop()
+    p2El.innerText = cardsOut.pop()
+    d1El.innerText = cardsOut.pop()
+    deckEl.innerText = cardsOut.length
+    d2El.innerText = ''
   }
 }
 
@@ -111,6 +117,7 @@ function hit(){
     playerTotal = sum
     playInputEl.value = sum
     isWinner()
+    isAce()
   }
 
 
@@ -136,19 +143,15 @@ function stand(){
 function isWinner() {
   if (playInputEl.value == 21){
     console.log(" YOU WIN!!");
-  }
-  if (dealInputEl.value == 21){
+  } else if (dealInputEl.value == 21){
     console.log("dealer wins");
-  }
-  if (d1El.innerText == 11 && d2El.innerText == 11){
+  } else if (dealInputEl.value == 22 && d1El.innerText == 11 && d2El.innerText == 11){
     console.log('dealer wins 2');
-  }else if(p1El.innerText == 11 && p2El.innerText == 11){
+  } else if (doubleAces()){
     console.log('player wins2');
-  }
-  if (playInputEl.value > 21){
+  } else if (playInputEl.value > 21){
     console.log(" YOU LOSE");
-  }
-  if (dealInputEl.value > 21){
+  } else if (dealInputEl.value > 21){
     console.log("YOU WIN");
   if (cardsOut.length === 0){
     console.log("game over");
@@ -195,5 +198,10 @@ function isAce(){
   }else if (p2El.innerText == 11 && playInputEl.value > 21){
     console.log('isace 4');
     return p2El.innerText = 1
+  }
+}
+function doubleAces(){
+  if (p1El.innerText.replace(/[♥️♦️♠️♣️]/,'') == 'A' && p2El.innerText.replace(/[♥️♦️♠️♣️]/,'') == 'A'){
+    console.log('player wins2');
   }
 }
