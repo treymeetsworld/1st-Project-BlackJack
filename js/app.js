@@ -3,7 +3,7 @@ const suits = ["♥️","♦️","♠️","♣️"]
 const cards =["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
 
 /*------------- Variables (state) -------------*/
-let turn,winner,playerCard1, playerCard2, dealerCard1, dealerCard2 
+let winner,playerCard1, playerCard2, dealerCard1, dealerCard2,playerPoints,dealerPoints
 let deck = []
 let cardsOut = []
 let playerTotal = []
@@ -22,6 +22,8 @@ let d1El = document.getElementById('d1')
 let d2El = document.getElementById('d2')
 let dealInputEl = document.getElementById('dealerInput')
 let playInputEl = document.getElementById('playerInput')
+let playerPointsValue = document.querySelector('.player')
+let dealerPointsValue = document.querySelector('.bank')
 
 /*-------------- Event Listeners --------------*/
 standRef.addEventListener('click',stand)
@@ -34,8 +36,12 @@ init()
 function init(){
   getDeck()
   shuffleDeck(deck)
-  turn = 1
   winner = null
+  playerPoints = []
+  dealerPoints = []
+  displayButtons()
+  playerPointsValue.innerText = playerPoints.length
+  dealerPointsValue.innerText = dealerPoints.length
   // startRef.innerText = 'Restart'
 }
 
@@ -65,13 +71,15 @@ function shuffleDeck(deck){
   return cardsOut
 }
 function deal(){
+  hitRef.style.display = 'block'
+  standRef.style.display = 'block'
   p1El.innerText = cardsOut.pop()
   p2El.innerText = cardsOut.pop()
   d1El.innerText = cardsOut.pop()
   deckEl.innerText = cardsOut.length
   d2El.innerText = ''
   cardValues()
-  isWinner()
+  isAutomaticWinner()
   if (deckEl.innerText == 0 || cardsOut.length == 0){
     getDeck()
     shuffleDeck(deck)
@@ -116,12 +124,14 @@ function hit(){
     },0)
     playerTotal = sum
     playInputEl.value = sum
-    isWinner()
+    isAutomaticWinner()
     isAce()
+    gameWinner()
   }
 
 
 function stand(){
+  hitRef.style.display = 'none'
   playerTotal = parseInt(playInputEl.value)
   dealerTotal.push(parseInt(dealInputEl.value)) 
   dealerTotal.pop()
@@ -129,36 +139,46 @@ function stand(){
   d2El.innerText = cardsOut.pop()
   deckEl.innerText = cardsOut.length
   dealerStand = d2El.innerText
-    dealerStand =  parseInt(d2El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
-    dealerTotal.push(dealerStand)
-    sum = dealerTotal.reduce((a,b)=>{
-      return [parseInt(a) + parseInt(b)]
+  dealerStand =  parseInt(d2El.innerText.replace(/[♥️♦️♠️♣️]/,'').replace(/[KQJ]/,'10').replace(/[A]/,'11'))
+  dealerTotal.push(dealerStand)
+  sum = dealerTotal.reduce((a,b)=>{
+    return [parseInt(a) + parseInt(b)]
     },0)
-    dealerTotal = sum
-    dealInputEl.value = sum
-    isWinner()
-    isAce()
-    isGreater()
+  dealerTotal = sum
+  dealInputEl.value = sum
+  isAutomaticWinner()
+  isAce()
+  dealerSafety()
+  gameWinner()
 }
-function isWinner() {
+function isAutomaticWinner() {
   if (playInputEl.value == 21){
-    console.log(" YOU WIN!!");
+    playerPoints.push('1')
+    displayButtons()
+    getPoints()
   } else if (dealInputEl.value == 21){
-    console.log("dealer wins");
+    dealerPoints.push('1')
+    displayButtons()
+    getPoints()
   } else if (dealInputEl.value == 22 && d1El.innerText == 11 && d2El.innerText == 11){
-    console.log('dealer wins 2');
+    dealerPoints.push('1')
+    displayButtons()
+    getPoints()
   } else if (doubleAces()){
-    console.log('player wins2');
+    playerPoints.push('1')
+    displayButtons()
+    getPoints()
   } else if (playInputEl.value > 21){
-    console.log(" YOU LOSE");
+    dealerPoints.push('1')
+    displayButtons()
+    getPoints()
   } else if (dealInputEl.value > 21){
-    console.log("YOU WIN");
-  if (cardsOut.length === 0){
-    console.log("game over");
-    }
+    playerPoints.push('1')
+    displayButtons()
+    getPoints()
   }
 }
-function isGreater(){
+function dealerSafety(){
   if (d1El.innerText + d2El.innerText < 14){
     d2El.innerText = cardsOut.pop()
     deckEl.innerText = cardsOut.length
@@ -172,36 +192,51 @@ function isGreater(){
     dealInputEl.value = sum
     evaluate()
   }else if(dealInputEl.value > 14){
+  standRef.style.display = 'none'
     evaluate()
   }
 }
 function evaluate(){
-  if (dealInputEl.value > playInputEl.value){
-    console.log('dealer wins1');
-  }else if(playInputEl.value > dealInputEl.value) {
-    console.log('player wins1');
+  if (dealInputEl.value > playInputEl.value && dealInputEl.value < 21){
+    dealerPoints.push('1')
+    getPoints()
+  }else if(playInputEl.value > dealInputEl.value && playInputEl.value <21) {
+    playerPoints.push('1')
+    getPoints()
   }else {
-    console.log('its a tie');
+    return `ITS A TIE!!`
   }
 }
 function isAce(){
   if (d1El.innerText == 11 && dealInputEl.value > 21){
-    console.log('isace 1');
-    return d1El.innerText = 1
+    d1El.innerText = 1
   }else if (d2El.innerText == 11 && dealInputEl.value > 21){
-    console.log('isace 2');
-    return d2El.innerText = 1
+    d2El.innerText = 1
   } 
   if (p1El.innerText == 11 && playInputEl.value > 21){
-    console.log('isace 3');
-    return p1El.innerText = 1
+    p1El.innerText = 1
   }else if (p2El.innerText == 11 && playInputEl.value > 21){
-    console.log('isace 4');
     return p2El.innerText = 1
   }
 }
 function doubleAces(){
   if (p1El.innerText.replace(/[♥️♦️♠️♣️]/,'') == 'A' && p2El.innerText.replace(/[♥️♦️♠️♣️]/,'') == 'A'){
-    console.log('player wins2');
+    playerPoints.push('1')
+    getPoints()
   }
+}
+function gameWinner(){
+  if (dealerPoints.length == 10){
+    return `DEALER WINS!! OH NOOOOO`
+  }else if(playerPoints.length == 10){
+    return `YOU WIN YAAAAY`
+  }
+}
+function displayButtons(){
+  hitRef.style.display = 'none'
+  standRef.style.display = 'none'
+}
+function getPoints(){
+  playerPointsValue.innerText = playerPoints.length
+  dealerPointsValue.innerText = dealerPoints.length
 }
