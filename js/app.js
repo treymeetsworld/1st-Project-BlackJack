@@ -29,7 +29,7 @@ let dealerPointsValue = document.querySelector('.bank')
 standRef.addEventListener('click',stand)
 hitClick = hitRef.addEventListener('click',hit)
 dealRef.addEventListener('click',deal)
-startRef.addEventListener('click',init)
+
 /*----------------- Functions -----------------*/
 init()
 
