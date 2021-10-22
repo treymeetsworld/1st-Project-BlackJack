@@ -42,7 +42,6 @@ function init(){
   displayButtons()
   playerPointsValue.innerText = playerPoints.length
   dealerPointsValue.innerText = dealerPoints.length
-  // startRef.innerText = 'Restart'
 }
 
 

@@ -5,100 +5,116 @@ body{
 }
 .table{
   display: block;
-  background-color: green;
+  background-color:#d5bebe;
   height:100vh;
   
 }
 .player{
-  background-color:white;
+  font-size: 2.5rem;
+  text-align:center;
+  background-color: #192C4D;
   height: 76px;
   width: 120px;
   position:absolute;
-  right:300px;
-  top: 600px;
-
+  right:760px;
+  top: 700px;
+  border-radius: .5rem;
 }
 .bank{
+  font-size: 2.5rem;
+  text-align:center;
   background-color: brown;
   height: 76px;
   width: 120px;
   position:absolute;
-  right:300px;
-  top: 10px;
+  right:760px;
+  top: 60px;
+  border-radius: .5rem;
 
 }
 .play-field{
-  background-color: burlywood;
-  height: 300px;
-  width: 450px;
+  background-color: #B6A6AB;
+  height: 400px;
+  width: 600px;
   position: absolute;
-  left: 160px;
-  top: 200px;
+  left: 550px;
+  top: 180px;
+  border-radius: 1rem;
 }
 .deck{
-  background-color: chartreuse;
-  height: 70px;
-  width: 45px;
+  font-size: 3rem;
+  text-align:center ;
+  background-color: #5D2E4A;
+  height: 100px;
+  width: 80px;
   position: absolute;
-  left: 55px;
-  top: 110px;
+  left: 80px;
+  top: 150px;
+  border-radius: .5rem;
 }
-.bets{
-  background-color: coral;
-  height: 70px;
-  width: 100px;
-  position: absolute;
-  left:270px;
-  top: 110px;
-}
+
  #p1{
-  background-color: crimson;
-  height: 70px;
-  width: 60px;
+  font-size: 2.5rem;
+  text-align:center;
+  background-color: #192C4D;
+  height: 100px;
+  width: 80px;
   position: absolute;
-  left: 120px;
-  top: 230px;
+  left: 210px;
+  top: 300px;
+  border-radius: .5rem;
 }
 #p2{
-  background-color: darkblue;
-  height: 70px;
-  width: 60px;
+  font-size: 2.5rem;
+  text-align:center;
+  background-color: #192C4D;
+  height: 100px;
+  width: 80px;
   position: absolute;
-  left: 220px;
-  top: 230px;
+  left: 350px;
+  top: 300px;
+  border-radius: .5rem;
 }
 #d1{
-  background-color: darkgoldenrod;
-  height: 70px;
-  width: 60px;
+  font-size: 2.5rem;
+  text-align:center;
+  background-color: #A13047;
+  height: 100px;
+  width: 80px;
   position: absolute;
-  left: 120px;
+  left: 210px;
   top: 0px;
+  border-radius: .5rem;
 }
 #d2{
-  background-color: darkorchid;
-  height: 70px;
-  width: 60px;
+  font-size: 2.5rem;
+  text-align:center;
+  background-color: #A13047;
+  height: 100px;
+  width: 80px;
   position: absolute;
-  left: 220px;
+  left: 350px;
   top: 0px;
+  border-radius: .5rem;
 }
 #hit{
+  font-size: 2rem;
   background-color: darkslategray;
   height: 45px;
   width: 45px;
   position: absolute;
-  left: 280px;
-  top:520px;
+  left: 780px;
+  top:630px;
   border-radius: 50%;
 }
 #stand{
-  background-color: deeppink;
+  font-size: 2rem;
+  background-color: #58657E;
   height: 45px;
   width: 45px;
   position: absolute;
-  left: 400px;
-  top: 520px;
+  left: 890px;
+  top: 630px;
   border-radius: 50%;
 }
 #deal{
