@@ -9,21 +9,42 @@
   <script defer src="./js/app.js"></script>
 </head>
 <body>
+  <div class="title">
+    <h1>BLACKJACK</h1>
+  </div>
   <div class="table">
-    <div class="player"></div>
     <div class="bank"></div>
     <div class="play-field">
-      <div class="deck"></div>
-      <div class="player-deck" id="p1"></div>
-      <div class="player-deck" id="p2"></div>
-      <button id="dealBtn">DEAL</button>
-      <div class="dealer-deck" id="d1"></div>
-      <div class="dealer-deck" id="d2"></div>
+      <div class="card-box">
+        <div class="dealer-cards">
+          <div class="dealer-deck" id="d1"></div>
+          <div class="dealer-deck" id="d2"></div>
+        </div>
+        <div class="middle">
+          <div class="deck-box">
+            <button id="dealBtn">DEAL</button>
+            <div class="deck"></div>
+          </div>
+          <div class="extras">
+            <label for="dealerInput">Dealer</label>
+            <input type="" id="dealerInput"> 
+            <label for="playerInput">Player</label>
+            <input type="" id="playerInput"> 
+          </div>
+        </div>
+        <div class="player-cards">
+          <div class="plr">
+            <div class="player-deck" id="p1"></div>
+            <div class="player-deck" id="p2"></div>
+          </div>
+          <div class="btns">
+            <button id="hit">H</button>
+            <button id="stand">S</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <input type="" id="dealerInput"> Dealer
-    <input type="" id="playerInput"> Player
-    <button id="hit">H</button>
-    <button id="stand">S</button>
-    </div>
+    <div class="player"></div>
+  </div>
 </body>
 </html>
